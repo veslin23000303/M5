@@ -1,4 +1,5 @@
-EX-21-POINTERS
+# VESLIN ANISH A 212223240175
+# EX-21-POINTERS
 # AIM:
 Write a C program to convert a 23.65 into 25 using pointer
 
@@ -9,20 +10,19 @@ Write a C program to convert a 23.65 into 25 using pointer
 4.	Print the modified value.
 
 ## PROGRAM:
-
+```
+#include <stdio.h>
+int main() {
+    float num = 23.65;
+    float *ptr;
+    ptr = &num;
+    *ptr = 25;
+    printf("Modified value: %.2f\n", num);
+    return 0;
+}
+```
 ## OUTPUT:
- 	
-
-
-
-
-
-
-
-
-
-
-
+Modified value: 25.00
 ## RESULT:
 Thus the program to convert a 23.65 into 25 using pointer has been executed successfully.
  
@@ -32,9 +32,7 @@ Thus the program to convert a 23.65 into 25 using pointer has been executed succ
 # EX-22-FUNCTIONS AND STORAGE CLASS
 
 ## AIM:
-
 Write a C program to calculate the Product of first 12 natural numbers using Recursion
-
 ## ALGORITHM:
 
 1.	Define a recursive function calculateProduct that takes an integer parameter n.
@@ -45,10 +43,27 @@ Write a C program to calculate the Product of first 12 natural numbers using Rec
 6.	Print the result, indicating it is the product of the first 12 natural numbers.
 
 ## PROGRAM:
+```
+#include <stdio.h>
+unsigned long long product(int n) {
+    if (n == 1) {
+        return 1; // Base case
+    } else {
+        return n * product(n - 1); // Recursive case
+    }
+}
+int main() {
+    int n = 12;
+    unsigned long long result;
+    result = product(n);
+    printf("Product of first %d natural numbers is: %llu\n", n, result);
+    return 0;
+}
+```
 ## OUTPUT:
+Product of first 12 natural numbers is: 479001600
          		
 ## RESULT:
-
 Thus the program has been executed successfully.
  
  
@@ -57,7 +72,6 @@ Thus the program has been executed successfully.
 # EX-23-ARRAYS AND ITS OPERATIONS
 
 ## AIM:
-
 Write C Program to find Sum of each row of a Matrix
 
 ## ALGORITHM:
@@ -68,18 +82,48 @@ Write C Program to find Sum of each row of a Matrix
 4.	Print the sum for each row.
 
 ## PROGRAM:
-
-
-
+```
+#include <stdio.h>
+int main() {
+    int rows, cols;
+    int i, j, sum;
+    scanf("%d", &rows);
+    scanf("%d", &cols);
+    int matrix[rows][cols];
+    for(i = 0; i < rows; i++) {
+        for(j = 0; j < cols; j++) {
+            printf("Element [%d][%d]: ", i, j);
+            scanf("%d", &matrix[i][j]);
+        }
+    }
+    printf("\nSum of each row:\n");
+    for(i = 0; i < rows; i++) {
+        sum = 0;
+        for(j = 0; j < cols; j++) {
+            sum += matrix[i][j];
+        }
+        printf("Sum of row %d = %d\n", i, sum);
+    }
+    return 0;
+}
+```
 ## OUTPUT
+```
+2
+3
 
-
- 
- 
-
- ## RESULT
- 
-
+Element [0][0]: 1
+Element [0][1]: 2
+Element [0][2]: 3
+Element [1][0]: 4
+Element [1][1]: 5
+Element [1][2]: 6
+Sum of each row:
+Sum of row 0 = 6
+Sum of row 1 = 15
+```
+## RESULT
+ Sum of each row of matrix is found.
 
 # EX-24-STRINGS
 
@@ -96,14 +140,37 @@ Write C program for the below pyramid string pattern. Enter a string: PROGRAM En
 5.	End the program.
 
 ## PROGRAM:
+```
+#include <stdio.h>
+int main() {
+    char str[100];
+    int rows, i, j;
+    scanf("%s", str);
+    scanf("%d", &rows);
+    for(i = 0; i < rows; i++) {
+        j = 0;
+        while(str[j] != '\0') {
+            printf("%c ", str[j]);
+            j++;
+        }
+        printf("\n");
+    }
+    return 0;
+}
+```
+## OUTPUt:
+```
+PROGRAM
+5
 
-
- ## OUTPUT
-
- 
+P R O G R A M
+P R O G R A M
+P R O G R A M
+P R O G R A M
+P R O G R A M
+```
 
 ## RESULT
-
 Thus the C program to String process executed successfully
  
 
@@ -132,13 +199,37 @@ Step 5: Loop from i = 0 to i < n:
 Step 6: End the program.
 
 ## PROGRAM
-
+```
+#include <stdio.h>
+int main() {
+    int arr[6];
+    int *ptr;
+    int i;
+    ptr = arr;
+    printf("Enter 6 integers:\n");
+    for(i = 0; i < 6; i++) {
+        scanf("%d", ptr + i);
+    }
+    printf("The elements of the array are:\n");
+    for(i = 0; i < 6; i++) {
+        printf("%d ", *(ptr + i));
+    }
+    printf("\n");
+    return 0;
+}
+```
 ## OUTPUT
-
- 
+Enter 6 integers:
+5
+10
+15
+20
+25
+30
+The elements of the array are:
+5 10 15 20 25 30
 
 ## RESULT
-
 Thus the C program to read and display an array of any 6 integer elements using pointer has been executed
 
 
